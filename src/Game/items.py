@@ -34,3 +34,5 @@ class Key(Tool):
                          description="A small key, perhaps used to open a door?",
                          value=0,
                          usage='door')
+        
+# INCLUDE A POTION CLASS TO HEAL?

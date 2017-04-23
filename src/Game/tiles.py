@@ -4,6 +4,7 @@ Taken from: http://letstalkdata.com/2014/08/how-to-write-a-text-adventure-in-pyt
 '''
 
 from Game import items
+from Game.enemies import Enemy
 
 class MapTile:
     def __init__(self, x, y):
@@ -28,3 +29,38 @@ class StartingRoom(MapTile):
         #Room has no action on player
         pass
 
+class EnemyRoom(MapTile):
+    def __init(self, x, y, enemy):
+        self.enemy = Enemy
+        super().__init__(x, y)
+    
+    def intro_text(self):
+        return """
+        Watch out! You've encountered an enemy!
+        """
+    
+    def modify_player(self, the_player):
+        if self.enemy.is_alive():
+            the_player.hp = the_player.hp - self.enemy.damage
+            print("Enemy does {} damage. You have {} HP remaining.".format(self.enemy.damage, the_player.hp))
+            
+ 
+class EmptyWoodsPath(MapTile):
+    def intro_text(self):
+        return """
+        A seemingly quiet part of the woods. Are we out of the woods yet...
+        """
+    
+    def modify_player(self, player):
+        # Room has no action on player
+        pass
+    
+class ExitRoom(MapTile):
+    def intro_text(self):
+        return """
+        You luckily made your way out of the woods. You're safe for now... until next time...
+        """
+    
+    def modify_player(self, the_player):
+        the_player.victory = True
+        

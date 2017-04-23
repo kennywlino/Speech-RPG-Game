@@ -1,0 +1,8 @@
+			LeaveCaveRoom
+			EmptyWoodsPath	
+		EmptyWoodsPath	EnemyRoom	EnemyRoom
+EmptyWoodsPath		EnemyRoom		EnemyRoom
+EnemyRoom	EnemyRoom	StartingRoom	EmptyWoodsPath	EmptyWoodsPath
+EnemyRoom		EnemyRoom		EnemyRoom
+		EnemyRoom	EmptyWoodsPath	EnemyRoom
+		EmptyWoodsPath

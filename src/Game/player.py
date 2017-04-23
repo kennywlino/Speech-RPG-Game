@@ -1,4 +1,5 @@
-from Game import items
+from Game import items, enemies, actions, world
+import random
 
 class Player():
     def __init__(self):
@@ -30,3 +31,13 @@ class Player():
  
     def move_west(self):
         self.move(dx=-1, dy=0)
+        
+    def attack(self, enemy):
+        attack = random.randint(1, enemy.hp)
+        if attack == enemy.hp:
+            print("WOAH! That was critical!")
+        enemy.hp -= attack
+        if not enemy.is_alive():
+            print("You killed {}!".format(enemy.name))
+        else:
+            print("{} HP is {}.",format(enemy.name, enemy.hp))
