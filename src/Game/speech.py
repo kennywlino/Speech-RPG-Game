@@ -1,7 +1,7 @@
 import os
 import speech_recognition as sr
-from Game import feedback
 
+# recognizes the speech of a user using the Mirosoft Bing Text-to-Speech service
 def recognize_speech():
     r = sr.Recognizer()
     text = ''
@@ -29,5 +29,4 @@ def save_audio(audio):
     with open("game_audio_"+ str(i) + ".wav", "wb") as f:
         f.write(audio.get_wav_data())
 
-text = recognize_speech()
 

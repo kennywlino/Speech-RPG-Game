@@ -1,8 +1,1 @@
-			LeaveCaveRoom
-			EmptyWoodsPath	
-		EmptyWoodsPath	EnemyRoom	EnemyRoom
-EmptyWoodsPath		EnemyRoom		EnemyRoom
-EnemyRoom	EnemyRoom	StartingRoom	EmptyWoodsPath	EmptyWoodsPath
-EnemyRoom		EnemyRoom		EnemyRoom
-		EnemyRoom	EmptyWoodsPath	EnemyRoom
-		EmptyWoodsPath
+			ExitRoom		PPRoom	BossRoomPPRoom		EmptyWoodsPath	EvilTwinsRoom	EvilTwinsRoomEmptyWoodsPath		EvilTwinsRoom		PPRoomEvilTwinsRoom	EvilTwinsRoom	StartingRoom	EmptyWoodsPath	EmptyWoodsPathPPRoom		PPRoom		EvilTwinsRoomEmptyWoodsPath		PPRoom	EmptyWoodsPath	EvilTwinsRoom	PPRoom	EmptyWoodsPath		

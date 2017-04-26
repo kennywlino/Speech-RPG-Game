@@ -1,5 +1,5 @@
-from Game import world
-from .player import Player
+import world
+from player import Player
 
 def play():
     world.load_tiles()
@@ -8,8 +8,8 @@ def play():
     print(room.intro_text())
     while player.is_alive() and not player.victory:
         room = world.tile_exists(player.location_x, player.location_y)
-        room.modify_player(player)
-         # Check again since the room could have changed the player's state
+        room.modify_player(player) # CHANGE THIS SO THE USER DOESN'T LOSE HP FOR BEING IN THE ROOM
+        # Check again since the room could have changed the player's state
         if player.is_alive() and not player.victory:
             print("Choose an action:\n")
             available_actions = room.available_actions()

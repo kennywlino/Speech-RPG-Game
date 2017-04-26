@@ -1,9 +1,15 @@
-from Game import items, enemies, actions, world
+'''
+Class Player defines the default settings and functions of a user playing the game.
+Features such as inventories are currently defined but are not used in the current version
+of the game.
+'''
+
+import items, world, speech
 import random
 
 class Player():
     def __init__(self):
-        self.inventory = []
+        self.inventory = [] # not currently being used
         self.hp = 100
         self.location_x, self.location_y = world.starting_position
         self.victory = False
@@ -11,6 +17,7 @@ class Player():
     def is_alive(self):
         return self.hp > 0
     
+    # not being used in this version 
     def print_inventory(self):
         for item in self.inventory:
             print(item, '\n')
@@ -31,13 +38,24 @@ class Player():
  
     def move_west(self):
         self.move(dx=-1, dy=0)
-        
+    
+    # this is the module that requires checking the speech to text to the enemies sentences
+    # Make the change to the player that they lose HP if they say the sentence wrong HERE
     def attack(self, enemy):
-        attack = random.randint(1, enemy.hp)
-        if attack == enemy.hp:
-            print("WOAH! That was critical!")
-        enemy.hp -= attack
+        '''
+        user_text = recognize_speech()
+        if user_text == # what the enemies sentence is
+            damage = random.randint(3, enemy.hp - 1)
+            if damage == enemy.hp:
+                print("WOAH! That was critical!")
+            enemy.hp -= damage
+        '''
         if not enemy.is_alive():
             print("You killed {}!".format(enemy.name))
         else:
             print("{} HP is {}.",format(enemy.name, enemy.hp))
+            
+    def do_action(self, action, **kwargs):
+        action_method = getattr(self, action.method.__name__)
+        if action_method:
+            action_method(**kwargs)

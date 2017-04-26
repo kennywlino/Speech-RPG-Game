@@ -1,5 +1,6 @@
 '''
 The Item class defines basic information about any items found within the game
+Class item is NOT currently being used
 Taken from: http://letstalkdata.com/2014/08/how-to-write-a-text-adventure-in-python-part-1-items-and-enemies/
 '''
 
