@@ -42,14 +42,12 @@ class Player():
     # this is the module that requires checking the speech to text to the enemies sentences
     # Make the change to the player that they lose HP if they say the sentence wrong HERE
     def attack(self, enemy):
-        '''
-        user_text = recognize_speech()
+        user_text = speech.recognize_speech()
         if user_text == # what the enemies sentence is
             damage = random.randint(3, enemy.hp - 1)
             if damage == enemy.hp:
                 print("WOAH! That was critical!")
             enemy.hp -= damage
-        '''
         if not enemy.is_alive():
             print("You killed {}!".format(enemy.name))
         else:
