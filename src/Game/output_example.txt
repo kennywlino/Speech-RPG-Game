@@ -1,0 +1,108 @@
+Kennys-MacBook-Pro-2:Game kennylino$ python3 game.py
+
+        You wake up in the middle of a forest. You see four different paths,
+        each looking equally gloomy.
+
+Choose an action:
+
+d: Move east
+a: Move west
+w: Move north
+s: Move south
+Action: w
+
+            Two eerily looking twins randomly pop out of the woods. They say to you in unison:
+            "We know what you're thinking. WE'RE NOT TWINS!"
+
+Choose an action:
+
+x: Attack
+Action: x
+She gave the bag back to its owner
+Say something!
+she gave the bag back to its owner
+You killed Evil Twins!
+Choose an action:
+
+w: Move north
+s: Move south
+Action: w
+
+        A seemingly quiet part of the woods. Are we out of the woods yet...
+
+Choose an action:
+
+d: Move east
+w: Move north
+s: Move south
+Action: w
+
+            Suddenly the trees in the distance come together to form a wall,
+            blocking your path. They open their eyes and say, "To pass us,
+            and to continue on your path, you need to win against us or face our wrath!"
+
+Choose an action:
+
+x: Attack
+Action: x
+My school teacher comes from Spain
+Say something!
+my school teacher comes from Spain
+You killed Twisted Trees!
+Choose an action:
+
+d: Move east
+s: Move south
+Action: d
+
+        WOOOOOOOO you've made it... wait.
+        *thump* You encounter an old, grumpy troll.
+        He(?) says to you, "LOL you thought you were about to just walk out of here,
+        but before you go, I need you to spit a rap!"
+
+Choose an action:
+
+x: Attack
+Action: x
+Four furious friends fought for the phone
+Say something!
+for Curious friend's fault for the phone
+Enemy does 15 damage. You have 85 HP remaining.
+Oops, looks like you need to improve your communication skills. The fairies of the forest come in your help. 'Hello wanderer! You have 3 different ways to get feedback, choose an option so we can perform our magic!'
+1. Get the arpabet transcription
+2. Get the IPA transcription
+3. Get some descriptive advice
+
+2
+fɔr fjʊriəs frɛndz fɔt fɔr ði foʊn
+Choose an action:
+
+x: Attack
+Action: x
+Four furious friends fought for the phone
+Say something!
+four Furious friends fault for the phone
+Enemy does 15 damage. You have 70 HP remaining.
+Oops, looks like you need to improve your communication skills. The fairies of the forest come in your help. 'Hello wanderer! You have 3 different ways to get feedback, choose an option so we can perform our magic!'
+1. Get the arpabet transcription
+2. Get the IPA transcription
+3. Get some descriptive advice
+
+1
+FAOR - FYUHRIYAHS - FREHNDZ - FAOT - FAOR - DHAH - FOWN
+Choose an action:
+
+x: Attack
+Action: x
+Four furious friends fought for the phone
+Say something!
+four furious friends fought for the phone
+You killed Final Boss!
+Choose an action:
+
+a: Move west
+w: Move north
+s: Move south
+Action: w
+
+        You luckily made your way out of the woods. You're safe for now... until next time...
