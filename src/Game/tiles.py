@@ -64,17 +64,16 @@ class EnemyRoom(MapTile):
     def __init__(self, x, y, enemy):
         self.enemy = enemy
         super().__init__(x, y)
-    
-    def modify_player(self, the_player):
-        if self.enemy.is_alive():
-            the_player.hp = the_player.hp - self.enemy.damage
-            print("Enemy does {} damage. You have {} HP remaining.".format(self.enemy.damage, the_player.hp))
-            
+                
     def available_actions(self):
         if self.enemy.is_alive():
             return [actions.Attack(enemy=self.enemy)]
         else:
             return self.adjacent_moves()
+    
+    def modify_player(self, player):
+        # Room has no action on player
+        pass
 
 # A room that contains enemies that use words with minimal pairs.     
 class EvilTwinsRoom(EnemyRoom):
