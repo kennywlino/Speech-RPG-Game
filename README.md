@@ -8,6 +8,7 @@ Education and NLP module of the Advanced Applications of Language Technologies
 course in the HAP-LAP Master's Program at the University of Basque Country.
 
 ## Execution
+*Disclaimer: This game has only been tested and ran on only one computer running OS X.*
 
 OS X & Linux:
 
@@ -58,6 +59,7 @@ the Forest for help! They offer help in three different ways:
 In order to run the game, you must have Python 3 (and not Python 2).
 You must also install the SpeechRecognition module found [here](https://pypi.python.org/pypi/SpeechRecognition/).
 
+You will also need a microphone to do the recording.
 
 ## Release History
 
