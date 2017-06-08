@@ -33,10 +33,10 @@ which only shows the currently available actions.
 ### Enemies
 These enemies represent sentences with different challenges implemented into the
 game:
-    * Evil Twins - Minimal pairs (e.g. the vowel in 'beat' vs. 'bit')
-    * Wise Trees - Other pronunciation challenges (consonant clusters, voicing,
-      silent r)
-    * Old Grumpy Troll - tongue twisters
+* Evil Twins - Minimal pairs (e.g. the vowel in 'beat' vs. 'bit')
+* Wise Trees - Other pronunciation challenges (consonant clusters, voicing,
+  silent r)
+* Old Grumpy Troll - tongue twisters
 
 To fight these enemies, you must pronounce things appropriately and make your
 way out of the forest!
@@ -48,10 +48,10 @@ Old Grumpy Troll as there is only one per game.
 ### Feedback
 Should you have trouble against the enemies, you can always ask The Fairies of
 the Forest for help! They offer help in three different ways:
-    * ARPAbet transcription - the ARPAbet transcription of the given sentence
-    * IPA transcription - the IPA transcription of the given
-    * Descriptive advice - descriptive advice of mouth placements for sounds that
-    appear in the sentence
+* ARPAbet transcription - the ARPAbet transcription of the given sentence
+* IPA transcription - the IPA transcription of the given
+* Descriptive advice - descriptive advice of mouth placements for sounds that
+  appear in the sentence
 
 ## Dependencies
 
