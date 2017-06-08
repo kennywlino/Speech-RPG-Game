@@ -56,8 +56,7 @@ the Forest for help! They offer help in three different ways:
 ## Dependencies
 
 In order to run the game, you must have Python 3 (and not Python 2).
-You must also install the SpeechRecognition module found [here]
-(https://pypi.python.org/pypi/SpeechRecognition/).
+You must also install the SpeechRecognition module found [here](https://pypi.python.org/pypi/SpeechRecognition/).
 
 
 ## Release History
