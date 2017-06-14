@@ -58,11 +58,13 @@ the Forest for help! They offer help in three different ways:
 
 In order to run the game, you must have Python 3 (and not Python 2).
 You must also install the SpeechRecognition module found [here](https://pypi.python.org/pypi/SpeechRecognition/).
+To use the feedback module, NLTK must be installed.
 
 You will also need a microphone to do the recording.
 
 ## Release History
-
+* 0.1.1 - 6/14/17
+    * README edited to mention NLTK dependencies.
 * 0.1.1 - 6/8/17
     * README finally added.
 * 0.1.0 - 4/26/17
