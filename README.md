@@ -59,6 +59,7 @@ the Forest for help! They offer help in three different ways:
 In order to run the game, you must have Python 3 (and not Python 2).
 
 You must also install the SpeechRecognition module found [here](https://pypi.python.org/pypi/SpeechRecognition/).
+
 To use the feedback module, [NLTK](http://www.nltk.org/) and the cmudict corpus must be installed.
 
 You will also need a microphone to do the recording.
