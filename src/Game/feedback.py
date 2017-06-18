@@ -22,7 +22,7 @@ def arpabet(sentence):
 	arpabet = nltk.corpus.cmudict.dict() #It imports the dictionary that contains words translated to arpabet
 	sentence = sentence.lower() #It converts the sentence to lower-case
 	arpabet_return = [] #The list stores the arpabet phonemes
-	arpabet_text = '' #It will store the final sentece translated to arpabet
+	arpabet_text = '' #It will store the final sentence translated to arpabet
 	for word in sentence.split(): #for each word in the sentence
 		try: #if it is in the dictionary
 			arpabet_pronunciation=arpabet[word][0] #It stores the phonemes of the word
