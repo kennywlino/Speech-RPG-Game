@@ -27,7 +27,7 @@ standard enemies (The Evil Twins and The Wise Trees) and 1 a boss (The Old
 Grumpy Troll).
 
 ### Basic information
-You start with 100 HP and lose 5 HP points per (improper pronunciation).
+You start with 100 HP and lose 5 HP points per improper pronunciation.
 To navigate around the forest, you use the indicated keys listed under actions,
 which only shows the currently available actions.
 
@@ -50,7 +50,7 @@ Old Grumpy Troll as there is only one per game.
 Should you have trouble against the enemies, you can always ask The Fairies of
 the Forest for help! They offer help in three different ways:
 * ARPAbet transcription - the ARPAbet transcription of the given sentence
-* IPA transcription - the IPA transcription of the given
+* IPA transcription - the IPA transcription of the given sentence
 * Descriptive advice - descriptive advice of mouth placements for sounds that
   appear in the sentence
 
