@@ -1,5 +1,5 @@
-from espeak import os
-#somehow, import espeak
+#install espeak by $sudo apt-get install espeak
+import os #this should go at the top of the program, we don't want to import it each time
 
-sentence='my butt hurts from anal sex'#get the sentence to be pronounced
-os.system("espeak"+sentence,'"')
+def tts(sentence): #takes the sentence to be pronounced
+	os.system("espeak '{0}'".format(sentence)) #it reads the sentence out loud
