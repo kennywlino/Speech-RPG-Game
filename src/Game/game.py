@@ -15,9 +15,10 @@ def play():
             available_actions = room.available_actions()
             for action in available_actions:
                 print(action)
-            action_input = input('Action: ')
+            print()
+            action_input = input('ACTION: ')
             for action in available_actions:
-                if action_input == action.hotkey:
+                if action_input.lower() == action.hotkey:
                     player.do_action(action, **action.kwargs)
                     break
 

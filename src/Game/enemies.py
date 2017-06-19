@@ -36,8 +36,8 @@ class EvilTwins(Enemy):
 
 class PP(Enemy):
     def __init__(self):
-        super().__init__(name="Twisted Trees", hp=20, damage=10, sentence=random.choice(pronunciation_problems))
+        super().__init__(name="Twisted Trees", hp=10, damage=10, sentence=random.choice(pronunciation_problems))
 
 class Boss(Enemy):
     def __init__(self):
-        super().__init__(name="Final Boss", hp=30, damage=15, sentence=random.choice(tongue_twisters))
+        super().__init__(name="Final Boss", hp=10, damage=15, sentence=random.choice(tongue_twisters))
