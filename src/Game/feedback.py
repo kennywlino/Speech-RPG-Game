@@ -16,7 +16,11 @@ this program can return either just the top result or every possible combination
 
 import nltk
 import re
+import os
 
+#this function converts the text to speech and pronounces the sentence.
+def tts(sentence): #takes the sentence to be pronounced
+	os.system("espeak '{0}'".format(sentence)) #it reads the sentence out loud
 # this function returns the ARPAbet pronunciation of the given text
 def arpabet(sentence):
 	arpabet = nltk.corpus.cmudict.dict() #It imports the dictionary that contains words translated to arpabet

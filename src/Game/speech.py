@@ -17,6 +17,7 @@ def recognize_speech():
     # instead of `r.recognize_google(audio)`
        text = r.recognize_google(audio)
        print(text)
+       #Here we should import the sentence somehow and print it in different colors
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
     except sr.RequestError as e:

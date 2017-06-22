@@ -66,7 +66,9 @@ class Player():
             ipa_sentence = feedback.ipa(enemy.sentence)
             feedback.minimal_pairs_advice(enemy.sentence, ipa_sentence)
         elif option == "4":
+            text_to_speech=tts(enemy.sentence)
             # option to pass up on feedback
+
 
     def do_action(self, action, **kwargs):
         action_method = getattr(self, action.method.__name__)
