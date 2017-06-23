@@ -17,10 +17,8 @@ this program can return either just the top result or every possible combination
 import nltk
 import re
 import os
+from speech import text #this supposedly imports the text the user has said
 
-#this function converts the text to speech and pronounces the sentence.
-def tts(sentence): #takes the sentence to be pronounced
-	os.system("espeak '{0}'".format(sentence)) #it reads the sentence out loud
 # this function returns the ARPAbet pronunciation of the given text
 def arpabet(sentence):
 	arpabet = nltk.corpus.cmudict.dict() #It imports the dictionary that contains words translated to arpabet
@@ -163,6 +161,7 @@ word_dict = cmu_words()
 
 
 def return_pronunciation_advice(each_phoneme,IPA_sentence): #returns the pronunciation advice for each phoneme contained in the sentence
+#It will return the feedback only for what has been said wrong
 	if each_phoneme=="ɪ" in IPA_sentence:
 		pronunciation_advice="Relax the mouth and keep sound short."
 	if each_phoneme=="æ":
@@ -205,14 +204,22 @@ def return_pronunciation_advice(each_phoneme,IPA_sentence): #returns the pronunc
 		pronunciation_advice="Voiced: Tip to alveolar. Front to palate."
 	return(pronunciation_advice)
 
-def return_pronunciation_advice_list(phonemes_IPA,IPA_sentence): #returns a list with all the pronunciation advices that the sentence needs
+def return_pronunciation_advice_list(phonemes_IPA,IPA_sentence): #returns a list with all the pronunciation advices that the sentence needs, only for the wrongly pronounced words.
 	pronunciation_advice_list=[]
+	user_sentence=ipa(text)
 	for each_phoneme in phonemes_IPA:
+        #without changes:
+                #if each_phoneme in IPA_sentence:
+                #	pronunciation_advice=return_pronunciation_advice(each_phoneme,IPA_sentence)
+		#       pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
+		#	pronunciation_advice_list.append(pronunciation_advice_complete)
 		if each_phoneme in IPA_sentence:
-			pronunciation_advice=return_pronunciation_advice(each_phoneme,IPA_sentence)
-			pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
-			pronunciation_advice_list.append(pronunciation_advice_complete)
-
+                        if each_phoneme in user_sentence:
+                                continue
+                        else:
+                                pronunciation_advice=return_pronunciation_advice(each_phoneme,IPA_sentence)
+                                pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
+                                pronunciation_advice_list.append(pronunciation_advice_complete)
 	return(pronunciation_advice_list)
 
 def minimal_pairs_advice(sentence, IPA_sentence):
@@ -222,6 +229,11 @@ def minimal_pairs_advice(sentence, IPA_sentence):
 	print(IPA_sentence + "\n")
 	for each_advice in advice_final_list:
 			print(each_advice)
+
+
+#this function converts the text to speech and pronounces the sentence.
+def tts(sentence): #takes the sentence to be pronounced
+	os.system("espeak '{0}'".format(sentence)) #it reads the sentence out loud
 
     # this function returns the text to speech of the given text
     # using the Bing Speech system

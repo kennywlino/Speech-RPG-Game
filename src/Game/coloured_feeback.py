@@ -1,5 +1,6 @@
 #this module prints the sentence the user has said in different colours depending on how much coincidence there is between the sentence to be pronounced and the user's sentence.
 import sys
+import enemies
 
 class bcolors:
     OKGREEN = '\033[92m'
@@ -8,9 +9,10 @@ class bcolors:
     FAIL = '\033[91m'
     ENDC = '\033[0m'
 
-sentence='I like chocolate very much so' #Here we need to import from enemies.py the sentence to be pronounced
+def coloured_feedback(text):
+sentence=enemy.sentence #Here we need to import from enemies.py the sentence to be pronounced
 words_sentence=len(sentence.split())
-text='She hates me chocolate' #Here we need to import from speech.py the sentence the user has said
+#Here we need to import from speech.py the sentence the user has said
 words_list=text.split()
 wordcount=0
 for word in words_list:
