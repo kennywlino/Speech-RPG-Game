@@ -1,0 +1,6 @@
+		BossRoom	ExitRoom
+	EmptyWoodsPath	EvilTwinsRoom
+	PPRoom	EmptyWoodsPath
+EvilTwinsRoom	StartingRoom
+	EvilTwinsRoom	PPRoom
+		EmptyWoodsPath
