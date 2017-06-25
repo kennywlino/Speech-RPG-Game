@@ -3,7 +3,7 @@ import speech_recognition as sr
 import coloured_feedback
 
 # recognizes the speech of a user using the Mirosoft Bing Text-to-Speech service
-def recognize_speech():
+def recognize_speech(enemy):
     r = sr.Recognizer()
     text = ''
     with sr.Microphone() as source:
@@ -18,7 +18,7 @@ def recognize_speech():
     # instead of `r.recognize_google(audio)`
        text = r.recognize_google(audio)
     #we make the call to print it with colors
-       coloured_feedback(text) #otherwise print(text)
+       coloured_feedback.recolor(text,enemy) #otherwise print(text)
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
     except sr.RequestError as e:

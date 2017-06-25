@@ -17,7 +17,7 @@ this program can return either just the top result or every possible combination
 import nltk
 import re
 import os
-from speech import text #this supposedly imports the text the user has said
+import speech #this supposedly imports the text the user has said
 
 # this function returns the ARPAbet pronunciation of the given text
 def arpabet(sentence):
@@ -206,7 +206,7 @@ def return_pronunciation_advice(each_phoneme,IPA_sentence): #returns the pronunc
 
 def return_pronunciation_advice_list(phonemes_IPA,IPA_sentence): #returns a list with all the pronunciation advices that the sentence needs, only for the wrongly pronounced words.
 	pronunciation_advice_list=[]
-	user_sentence=ipa(text)
+	user_sentence=ipa(speech.text)
 	for each_phoneme in phonemes_IPA:
         #without changes:
                 #if each_phoneme in IPA_sentence:
