@@ -13,6 +13,7 @@ class Player():
         self.hp = 100
         self.location_x, self.location_y = world.starting_position
         self.victory = False
+        self.user_text=''
 
     def is_alive(self):
         return self.hp > 0
@@ -42,8 +43,8 @@ class Player():
     # this is the module that requires checking the speech to text to the enemies sentences
     def attack(self, enemy):
         print(enemy.sentence + '\n')
-        user_text = (speech.recognize_speech(enemy)).lower()
-        if user_text == enemy.sentence.lower():
+        self.user_text = (speech.recognize_speech(enemy)).lower()
+        if self.user_text == enemy.sentence.lower():
             damage = enemy.hp
             enemy.hp -= damage
             print("You killed {}!".format(enemy.name))
@@ -64,7 +65,7 @@ class Player():
             print(feedback.ipa(enemy.sentence))
         elif option == "3":
             ipa_sentence = feedback.ipa(enemy.sentence)
-            feedback.minimal_pairs_advice(enemy.sentence, ipa_sentence)
+            feedback.minimal_pairs_advice(self.user_text,enemy.sentence, ipa_sentence)
         elif option == "4":
             text_to_speech=feedback.tts(enemy.sentence)
             # option to pass up on feedback

@@ -3,7 +3,6 @@
 '''
 The module 'feedback' is used to give feedback for a speech processing system
 in multiple forms, including ARPAbet, IPA, and text-to-speech
-
 The IPA Generator is taken from the following:
 IPA GENERATOR 2.0
 Author: Michael Phillips
@@ -17,7 +16,7 @@ this program can return either just the top result or every possible combination
 import nltk
 import re
 import os
-import speech #this supposedly imports the text the user has said
+import player #this supposedly imports the text the user has said
 
 # this function returns the ARPAbet pronunciation of the given text
 def arpabet(sentence):
@@ -204,9 +203,10 @@ def return_pronunciation_advice(each_phoneme,IPA_sentence): #returns the pronunc
 		pronunciation_advice="Voiced: Tip to alveolar. Front to palate."
 	return(pronunciation_advice)
 
-def return_pronunciation_advice_list(phonemes_IPA,IPA_sentence): #returns a list with all the pronunciation advices that the sentence needs, only for the wrongly pronounced words.
+def return_pronunciation_advice_list(user_text,phonemes_IPA,IPA_sentence): #returns a list with all the pronunciation advices that the sentence needs, only for the wrongly pronounced words.
 	pronunciation_advice_list=[]
-	user_sentence=ipa(speech.text)
+	print("YOU SAID",user_text)
+	user_sentence=ipa(user_text)
 	for each_phoneme in phonemes_IPA:
         #without changes:
                 #if each_phoneme in IPA_sentence:
@@ -222,9 +222,9 @@ def return_pronunciation_advice_list(phonemes_IPA,IPA_sentence): #returns a list
                                 pronunciation_advice_list.append(pronunciation_advice_complete)
 	return(pronunciation_advice_list)
 
-def minimal_pairs_advice(sentence, IPA_sentence):
+def minimal_pairs_advice(user_text,sentence, IPA_sentence):
 	phonemes_IPA=("ɪ","æ","ʊ","ɔ","ɜ","əʊ","b","v","ð","k","s","ʃ","h","n","ŋk","ŋ","j","w","ʤ") #list of phonemes
-	advice_final_list=return_pronunciation_advice_list(phonemes_IPA,IPA_sentence) #get the total advices for the specific sentence
+	advice_final_list=return_pronunciation_advice_list(user_text,phonemes_IPA,IPA_sentence) #get the total advices for the specific sentence
 	print("This is the advice we can give you to pronunce the sentence: \n" + sentence)
 	print(IPA_sentence + "\n")
 	for each_advice in advice_final_list:
