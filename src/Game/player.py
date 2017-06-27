@@ -4,7 +4,7 @@ Features such as inventories are currently defined but are not used in the curre
 of the game.
 '''
 
-import items, world, speech, feedback
+import items, world, speech, feedback, minimal_pairs_advice
 import random
 
 class Player():
@@ -65,7 +65,8 @@ class Player():
             print(feedback.ipa(enemy.sentence))
         elif option == "3":
             ipa_sentence = feedback.ipa(enemy.sentence)
-            feedback.minimal_pairs_advice(self.user_text,enemy.sentence, ipa_sentence)
+            #feedback.minimal_pairs_advice(self.user_text,enemy.sentence, ipa_sentence)
+            minimal_pairs_advice.minimal_pairs_advice(self.user_text,enemy.sentence,ipa_sentence)
         elif option == "4":
             text_to_speech=feedback.tts(enemy.sentence)
             # option to pass up on feedback

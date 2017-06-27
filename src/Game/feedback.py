@@ -206,21 +206,31 @@ def return_pronunciation_advice(each_phoneme,IPA_sentence): #returns the pronunc
 def return_pronunciation_advice_list(user_text,phonemes_IPA,IPA_sentence): #returns a list with all the pronunciation advices that the sentence needs, only for the wrongly pronounced words.
 	pronunciation_advice_list=[]
 	print("YOU SAID",user_text)
-	user_sentence=ipa(user_text)
-	for each_phoneme in phonemes_IPA:
-        #without changes:
-                #if each_phoneme in IPA_sentence:
-                #	pronunciation_advice=return_pronunciation_advice(each_phoneme,IPA_sentence)
-		#       pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
-		#	pronunciation_advice_list.append(pronunciation_advice_complete)
-		if each_phoneme in IPA_sentence:
-                        if each_phoneme in user_sentence:
-                                continue
-                        else:
-                                pronunciation_advice=return_pronunciation_advice(each_phoneme,IPA_sentence)
-                                pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
-                                pronunciation_advice_list.append(pronunciation_advice_complete)
-	return(pronunciation_advice_list)
+	# user_sentence=ipa(user_text)
+	# for each_phoneme in phonemes_IPA:
+    #     #without changes:
+    #             #if each_phoneme in IPA_sentence:
+    #             #	pronunciation_advice=return_pronunciation_advice(each_phoneme,IPA_sentence)
+	# 	#       pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
+	# 	#	pronunciation_advice_list.append(pronunciation_advice_complete)
+	# 	if each_phoneme in IPA_sentence:
+    #                     if each_phoneme in user_sentence:
+    #                             continue
+    #                     else:
+    #                             pronunciation_advice=return_pronunciation_advice(each_phoneme,IPA_sentence)
+    #                             pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
+    #                             pronunciation_advice_list.append(pronunciation_advice_complete)
+	# return(pronunciation_advice_list)
+	user_words=user_text.split()
+	for word in user_words:
+		if word in sentence:
+			continue
+		else:
+			ipa_word=ipa(word)
+			for each_phoneme in ipa_word:
+				pronunciation_advice=return_pronunciation_advice(each_phoneme,ipa_word)
+				pronunciation_advice_complete="The following information may help you to pronounce the phoneme /"+ each_phoneme +"/:\n\t"+pronunciation_advice
+				pronunciation_advice_list.append(pronunciation_advice_complete)
 
 def minimal_pairs_advice(user_text,sentence, IPA_sentence):
 	phonemes_IPA=("ɪ","æ","ʊ","ɔ","ɜ","əʊ","b","v","ð","k","s","ʃ","h","n","ŋk","ŋ","j","w","ʤ") #list of phonemes
