@@ -14,43 +14,26 @@ def recolor(text,enemy):
     num_words_sentence=len(words_sentence)
     #Here we need to import from speech.py the sentence the user has said
     words_list=text.lower().split()
+    words_present=[]
     wordcount=0
-    # for word in words_list:
-    #     if word in sentence:
-    #         new_wordcount=wordcount+1
-    #         wordcount=new_wordcount
-    # if wordcount==words_sentence:
-    #     (bcolors.OKGREEN +text+ bcolors.ENDC)
-    # elif wordcount>words_sentence/2:
-    #     for word in words_list:
-    #         if word in sentence.lower():
-    #             sys.stdout.write(bcolors.OKBLUE +word+' '+bcolors.ENDC)
-    #         else:
-    #             sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
-    # elif wordcount<=words_sentence/2 and wordcount>=1:
-    #     for word in words_list:
-    #         if word in sentence:
-    #             sys.stdout.write(bcolors.WARNING +word+' '+ bcolors.ENDC)
-    #         else:
-    #             sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
-    # else:
-    #     print(bcolors.FAIL +text+ bcolors.ENDC)
-    # print('\n')
     for word in words_list:
         if word in words_sentence:
             new_wordcount=wordcount+1
             wordcount=new_wordcount
+    for word in words_sentence:
+        if word in words_list:
+            words_present.append(word)
     if wordcount==num_words_sentence:
-        (bcolors.OKGREEN +text+ bcolors.ENDC)
+        sys.stdout.write(bcolors.OKGREEN +text+ bcolors.ENDC)
     elif wordcount>num_words_sentence/2:
-        for word in words_sentence:
-            if word in words_list:
+        for word in words_list:
+            if word in words_present:
                 sys.stdout.write(bcolors.OKBLUE +word+' '+bcolors.ENDC)
             else:
                 sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
     elif wordcount<=num_words_sentence/2 and wordcount>=1:
-        for word in words_sentence:
-            if word in words_list:
+        for word in words_list:
+            if word in words_present:
                 sys.stdout.write(bcolors.WARNING +word+' '+ bcolors.ENDC)
             else:
                 sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
