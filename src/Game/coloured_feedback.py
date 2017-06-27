@@ -11,32 +11,48 @@ class bcolors:
 def recolor(text,enemy):
     sentence=enemy.sentence #Here we need to import from enemies.py the sentence to be pronounced
     words_sentence=sentence.lower().split()
-    num_words_sentence=len(words_sentence)
-    #Here we need to import from speech.py the sentence the user has said
     words_list=text.lower().split()
-    words_present=[]
     wordcount=0
+    num_words_sentence=len(words_sentence)
+    all_words=words_sentence
     for word in words_list:
         if word in words_sentence:
             new_wordcount=wordcount+1
             wordcount=new_wordcount
-    for word in words_sentence:
-        if word in words_list:
-            words_present.append(word)
-    if wordcount==num_words_sentence:
+    if text.lower()==sentence.lower():
         sys.stdout.write(bcolors.OKGREEN +text+ bcolors.ENDC)
     elif wordcount>num_words_sentence/2:
-        for word in words_list:
-            if word in words_present:
-                sys.stdout.write(bcolors.OKBLUE +word+' '+bcolors.ENDC)
-            else:
-                sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
+        if len(words_list)==len(words_sentence):
+            for word in words_list:
+                if word == all_words[0]:
+                    sys.stdout.write(bcolors.OKBLUE +word+' '+bcolors.ENDC)
+                    all_words.pop(0)
+                else:
+                    sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
+                    all_words.pop(0)
+        else:
+            for word in words_list:
+                if word in all_words:
+                    sys.stdout.write(bcolors.OKBLUE +word+' '+bcolors.ENDC)
+                    all_words.pop(0)
+                else:
+                    sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
+                    all_words.pop(0)
     elif wordcount<=num_words_sentence/2 and wordcount>=1:
-        for word in words_list:
-            if word in words_present:
-                sys.stdout.write(bcolors.WARNING +word+' '+ bcolors.ENDC)
-            else:
-                sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
+        if len(words_list)==len(words_sentence):
+            for word in words_list:
+                if word in all_words:
+                    sys.stdout.write(bcolors.WARNING +word+' '+bcolors.ENDC)
+                    all_words.pop(0)
+                else:
+                    sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
+        else:
+            for word in words_list:
+                if word in all_words:
+                    sys.stdout.write(bcolors.WARNING +word+' '+bcolors.ENDC)
+                    all_words.pop(0)
+                else:
+                    sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
+                    all_words.pop(0)
     else:
         print(bcolors.FAIL +text+ bcolors.ENDC)
-    print('\n')
