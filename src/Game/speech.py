@@ -18,7 +18,8 @@ def recognize_speech(enemy):
     # instead of `r.recognize_google(audio)`
        text = r.recognize_google(audio)
     #we make the call to print it with colors
-       coloured_feedback.recolor(text,enemy) #otherwise print(text)
+       coloured_feedback.recolor(text,enemy)
+    #if coloured_feedback does not work use: print(text)
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
     except sr.RequestError as e:
