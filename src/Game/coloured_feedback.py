@@ -23,14 +23,14 @@ def recolor(text,enemy):
             wordcount = new_wordcount
     if text.lower() == sentence.lower():
         sys.stdout.write(bcolors.OKGREEN +text+ bcolors.ENDC)
-    elif wordcount > num_words_sentence/2:
+    elif wordcount > num_words_sentence / 2:
         if len(words_list) == len(words_sentence):
             for word in words_list:
                 if word == all_words[0]:
-                    sys.stdout.write(bcolors.OKBLUE +word+' '+bcolors.ENDC)
+                    sys.stdout.write(bcolors.OKBLUE + word + ' ' + bcolors.ENDC)
                     all_words.pop(0)
                 else:
-                    sys.stdout.write(bcolors.FAIL+word+' '+bcolors.ENDC)
+                    sys.stdout.write(bcolors.FAIL + word + ' ' + bcolors.ENDC)
                     all_words.pop(0)
         else:
             for word in words_list:

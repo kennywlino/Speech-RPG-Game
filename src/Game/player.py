@@ -42,6 +42,8 @@ class Player():
 
     # this is the module that requires checking the speech to text to the enemies sentences
     def attack(self, enemy):
+        # if enemy is evil twins, print both sentences but say only one
+
         print(enemy.sentence + '\n')
         self.user_text = (speech.recognize_speech(enemy)).lower()
         if self.user_text == enemy.sentence.lower():
@@ -69,7 +71,9 @@ class Player():
             minimal_pairs_advice.minimal_pairs_advice(self.user_text,enemy.sentence,ipa_sentence)
         elif option == "4":
             text_to_speech=feedback.tts(enemy.sentence)
-            # option to pass up on feedback
+        # elif option == "5":
+
+        # option to pass up on feedback
 
     def do_action(self, action, **kwargs):
         action_method = getattr(self, action.method.__name__)

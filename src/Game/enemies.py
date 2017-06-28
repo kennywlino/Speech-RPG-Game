@@ -1,14 +1,15 @@
 import random
 
-minimal_pairs = []
+# minimal_pairs = [] used only in ver 1 for list of minimal pair sentences
 pronunciation_problems = []
 tongue_twisters = []
 
 def text_to_list():
-    with open("minimal_pairs.txt") as file:
-        for line in file:
-            line = line.strip()
-            minimal_pairs.append(line)
+    # used only in ver 1 for list of minimal pair sentences
+    # with open("minimal_pairs.txt") as file:
+    #     for line in file:
+    #         line = line.strip()
+    #         minimal_pairs.append(line)
     with open("pronunciation_problems.txt") as file:
             for line in file:
                 line = line.strip()
