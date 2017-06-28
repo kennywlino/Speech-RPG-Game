@@ -63,7 +63,12 @@ def return_pronunciation_advice_list(user_text,phonemes_IPA,sentence): #returns 
 def minimal_pairs_advice(user_text,sentence,IPA_sentence):
     phonemes_IPA=("ɪ","æ","ʊ","ɔ","ɜ","əʊ","b","v","ð","k","s","ʃ","h","n","ŋk","ŋ","j","w","ʤ") #list of phonemes
     advice_final_list=return_pronunciation_advice_list(user_text,phonemes_IPA,sentence) #get the total advices for the specific sentence
-    print("This is the advice we can give you to pronunce the sentence: \n" + sentence)
-    print(IPA_sentence + "\n")
-    for each_advice in advice_final_list:
-        print(each_advice)
+    if len(advice_final_list)==0:
+        print("Since there are not specific problematic soudns in the words you pronounced wrongly, we can give you the ipa transcription")
+        print("The sentence: ",sentence)
+        print("The IPA transcription: ,",IPA_sentence + "\n")
+    else:
+        print("This is the advice we can give you to pronunce the sentence: \n" + sentence)
+        print(IPA_sentence + "\n")
+        for each_advice in advice_final_list:
+            print(each_advice)

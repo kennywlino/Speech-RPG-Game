@@ -62,6 +62,8 @@ You must also install the SpeechRecognition module found [here](https://pypi.pyt
 
 To use the feedback module, [NLTK](http://www.nltk.org/) and the cmudict corpus must be installed.
 
+To use the coloured feedback module, [eSpeak](http://espeak.sourceforge.net/) must be installed. 
+
 You will also need a microphone to do the recording.
 
 ## Release History
