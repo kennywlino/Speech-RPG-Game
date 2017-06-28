@@ -1,4 +1,4 @@
-#this module prints the sentence the user has said in different colours depending on how much coincidence there is between the sentence to be pronounced and the user's sentence.
+# this module prints the sentence the user has said in different colours depending on how much coincidence there is between the sentence to be pronounced and the user's sentence.
 import sys
 
 class bcolors:
@@ -9,7 +9,7 @@ class bcolors:
     ENDC = '\033[0m'
 
 def recolor(text,enemy):
-    sentence=enemy.sentence #Here we need to import from enemies.py the sentence to be pronounced
+    sentence=enemy.sentence # Here we need to import from enemies.py the sentence to be pronounced
     words_sentence=sentence.lower().split()
     words_list=text.lower().split()
     wordcount=0

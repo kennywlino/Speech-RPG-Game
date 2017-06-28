@@ -161,7 +161,7 @@ word_dict = cmu_words()
 
 #this function converts the text to speech and pronounces the sentence.
 def tts(sentence): #takes the sentence to be pronounced
-	os.system("espeak '{0}'".format(sentence)) #it reads the sentence out loud
+	os.system("espeak '{0}' -s 120".format(sentence)) #it reads the sentence out loud
 
     # this function returns the text to speech of the given text
     # using the Bing Speech system
