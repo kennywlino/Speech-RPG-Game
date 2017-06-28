@@ -4,7 +4,7 @@ Features such as inventories are currently defined but are not used in the curre
 of the game.
 '''
 
-import items, world, speech, feedback
+import items, world, speech, feedback, minimal_pairs_advice
 import random
 
 class Player():
@@ -13,6 +13,7 @@ class Player():
         self.hp = 100
         self.location_x, self.location_y = world.starting_position
         self.victory = False
+        self.user_text=''
 
     def is_alive(self):
         return self.hp > 0
@@ -42,33 +43,33 @@ class Player():
     # this is the module that requires checking the speech to text to the enemies sentences
     def attack(self, enemy):
         print(enemy.sentence + '\n')
-        user_text = (speech.recognize_speech()).lower()
-        if user_text == enemy.sentence.lower():
+        self.user_text = (speech.recognize_speech(enemy)).lower()
+        if self.user_text == enemy.sentence.lower():
             damage = enemy.hp
             enemy.hp -= damage
             print("You killed {}!".format(enemy.name))
         else:
             self.hp -= enemy.damage
-            feedback()
+            self.feedback(enemy)
 
     # returns feedback in ARPAbet, IPA, or descriptive format (mouth positioning)
     # depending on user input
-    def feedback():
+    def feedback(self, enemy):
         print("Enemy does {} damage. You have {} HP remaining.".format(enemy.damage, self.hp))
-        option=input("Oops, looks like you need to improve your communication skills. The fairies of the forest come in your help. 'Hello wanderer! You have 3 different ways to get feedback. Choose an option so we can perform our magic!'\n1. Get the arpabet transcription\n2. Get the IPA transcription\n3. Get some descriptive advice\n\n")
+        option=input("Oops, looks like you need to improve your communication skills. The fairies of the forest come in your help. 'Hello wanderer! You have 3 different ways to get feedback. Choose an option so we can perform our magic!'\n1. Get the arpabet transcription\n2. Get the IPA transcription\n3. Get some descriptive advice\n4. Get the pronunciation of the sentence\n\n")
         while option not in '1234':
-            option=input("Try again with 1, 2, or 3 please.\n\n")
+            option=input("Try again with 1, 2, 3, or 4 please.\n\n")
         if option == "1":
             print(feedback.arpabet(enemy.sentence.rstrip('.')))
         elif option == "2":
             print(feedback.ipa(enemy.sentence))
         elif option == "3":
             ipa_sentence = feedback.ipa(enemy.sentence)
-            feedback.minimal_pairs_advice(enemy.sentence, ipa_sentence)
+            #feedback.minimal_pairs_advice(self.user_text,enemy.sentence, ipa_sentence)
+            minimal_pairs_advice.minimal_pairs_advice(self.user_text,enemy.sentence,ipa_sentence)
         elif option == "4":
-            text_to_speech=tts(enemy.sentence)
+            text_to_speech=feedback.tts(enemy.sentence)
             # option to pass up on feedback
-
 
     def do_action(self, action, **kwargs):
         action_method = getattr(self, action.method.__name__)
