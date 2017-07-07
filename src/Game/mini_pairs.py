@@ -19,7 +19,7 @@ def make_min_pair_list():
 		cPickle.dump(mp_list, listFile)
 
 # returns one random minimal pair set from the minimal pair list
-def find_min_pair(mp_list):
+def get_min_pair(mp_list):
 	minimal_pair = random.choice(mp_list)
 	return minimal_pair
 
@@ -48,7 +48,7 @@ def make_word_sent_dict(mp_list):
 
 # gets random sentences with a minimal pair element and returns them in a dictionary
 # {word 1: sentence 1, word 2: sentence 2}
-def random_sentences(minimal_pair):
+def random_sentences(minimal_pair, word_sent_dict):
 	word1 = minimal_pair[0]
 	word2 = minimal_pair[1]
 	sent1 = random.choice(word_sent_dict[word1]) # random sentence for word1
@@ -118,7 +118,7 @@ def output(sentences, ref_and_test_word, associations):
 	ref_word = ref_and_test_word[0]
 	ref_sent = sentences[ref_word]
 	# creates a gap in the the test sentence containing the test word from the mp
-	test_sent = sentences[test_word].replace(test_word, '________')
+	test_sent = sentences[test_word]
 	# creates a list of associations (synonyms, antonyms, word definition) for the first minimal pair element
 	word_info = associations[test_word] # returns the associated def, syns, ants
 	# creates the output that user will see
@@ -132,7 +132,7 @@ def output(sentences, ref_and_test_word, associations):
 			print("1. " + ' '.join(ref_sent_split[:i]) + " " +
 			str(bcolors.OKGREEN + ref_word + bcolors.ENDC) + ' '
 			+ ' '.join(ref_sent_split[i+1:])+ "\n\n")
-	print("2.",test_sent)
+	print("2.",test_sent.replace(test_word, '________'))
 	print("\n\t- Word definition: ", word_info[2])
 	print("\n\t- Synonyms: ", end = " ")
 	if not word_info[0]:
@@ -145,18 +145,19 @@ def output(sentences, ref_and_test_word, associations):
 	else:
 		print(', '.join(word_info[1]),"\n\n")
 
-with open("word_sent_dict.txt", "rb") as dictFile:
- 	word_sent_dict = cPickle.load(dictFile)
-with open("min_pair_list.txt", "rb") as listFile:
-	mp_list = cPickle.load(listFile)
-with open("associations.txt", "rb") as dictFile2:
-	associations = cPickle.load(dictFile2)
-# make_min_pair_list() # this function only needs to be run once
-# make_word_sent_dict(mp_list) # this function only needs to be run once
-# make_associations_dict(mp_list) # this function only needs to be run once
-min_pair = find_min_pair(mp_list)
-while ((min_pair[0] not in word_sent_dict) or (min_pair[1] not in word_sent_dict)):
-	min_pair = find_min_pair(mp_list)
-random_sents = random_sentences(min_pair) # returns a dictionary of mp words to rand sents
-ref_and_test_word = get_test_word(random_sents)
-output(random_sents, ref_and_test_word, associations)
+
+# with open("word_sent_dict.txt", "rb") as dictFile:
+#  	word_sent_dict = cPickle.load(dictFile)
+# with open("min_pair_list.txt", "rb") as listFile:
+# 	mp_list = cPickle.load(listFile)
+# with open("associations.txt", "rb") as dictFile2:
+# 	associations = cPickle.load(dictFile2)
+# # make_min_pair_list() # this function only needs to be run once
+# # make_word_sent_dict(mp_list) # this function only needs to be run once
+# # make_associations_dict(mp_list) # this function only needs to be run once
+# min_pair = get_min_pair(mp_list)
+# while ((min_pair[0] not in word_sent_dict) or (min_pair[1] not in word_sent_dict)):
+# 	min_pair = get_min_pair(mp_list)
+# random_sents = random_sentences(min_pair, word_sent_dict) # returns a dictionary of mp words to rand sents
+# ref_and_test_word = get_test_word(random_sents)
+# output(random_sents, ref_and_test_word, associations)

@@ -1,13 +1,19 @@
 import os
 import speech_recognition as sr
 import coloured_feedback
+import time
 
-# recognizes the speech of a user using the Mirosoft Bing Text-to-Speech service
+# recognizes the speech of a user using Google Speech Recognition
 def recognize_speech(enemy):
     r = sr.Recognizer()
     text = ''
     with sr.Microphone() as source:
-        print("REPEAT THE SENTENCE ABOVE!")
+        print("Think about the word in the blank and get ready to say the sentence!")
+        start = False
+        while start != True:
+            time.sleep(10)
+            start = True
+        print("Say the sentence now!")
         audio = r.listen(source)
         # save_audio(audio)
 

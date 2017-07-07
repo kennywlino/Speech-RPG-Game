@@ -1,4 +1,6 @@
 import random
+import _pickle as cPickle
+import mini_pairs
 
 # minimal_pairs = [] used only in ver 1 for list of minimal pair sentences
 pronunciation_problems = []
@@ -21,6 +23,20 @@ def text_to_list():
 
 text_to_list()
 
+# the following are used for Evil Twins
+with open("word_sent_dict.txt", "rb") as dictFile:
+ 	word_sent_dict = cPickle.load(dictFile)
+with open("min_pair_list.txt", "rb") as listFile:
+	mp_list = cPickle.load(listFile)
+
+# gets minimal pair sentences for Evil Twins
+def get_mp_sentences():
+    min_pair = mini_pairs.get_min_pair(mp_list)
+    while ((min_pair[0] not in word_sent_dict) or (min_pair[1] not in word_sent_dict)):
+    	min_pair = mini_pairs.get_min_pair(mp_list)
+    random_sents = mini_pairs.random_sentences(min_pair, word_sent_dict) # returns a dictionary of mp words to rand sents
+    return (random_sents)
+
 class Enemy():
     def __init__(self, name, hp, damage, sentence):
         self.name = name
@@ -33,7 +49,7 @@ class Enemy():
 
 class EvilTwins(Enemy):
     def __init__(self):
-        super().__init__(name="Evil Twins", hp=10, damage=5, sentence=random.choice(minimal_pairs))
+        super().__init__(name="Evil Twins", hp=10, damage=5, sentence=get_mp_sentences())
 
 class PP(Enemy):
     def __init__(self):
