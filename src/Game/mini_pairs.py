@@ -105,7 +105,6 @@ def make_associations_dict(mp_list):
 			print(synsets_word)
 			associations[word] = []
 			associations[word].extend([synonyms_cleaned, antonyms, definition])
-	print(associations)
 	with open("associations.txt", "wb") as dictFile2:
 	 	cPickle.dump(associations, dictFile2)
 
@@ -154,7 +153,7 @@ def output(sentences, ref_and_test_word, associations):
 # 	associations = cPickle.load(dictFile2)
 # # make_min_pair_list() # this function only needs to be run once
 # # make_word_sent_dict(mp_list) # this function only needs to be run once
-# # make_associations_dict(mp_list) # this function only needs to be run once
+# make_associations_dict(mp_list) # this function only needs to be run once
 # min_pair = get_min_pair(mp_list)
 # while ((min_pair[0] not in word_sent_dict) or (min_pair[1] not in word_sent_dict)):
 # 	min_pair = get_min_pair(mp_list)
